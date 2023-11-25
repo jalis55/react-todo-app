@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './InputContent.css';
+import { TodoItemsContext } from '../../store/todo-items-store';
 
-const InputContent = ({addTodoList}) => {
+const InputContent = () => {
     const [taskName,setTaskName]=useState("");
     const [dueDate,setDueDate]=useState("");
 
@@ -10,6 +11,7 @@ const InputContent = ({addTodoList}) => {
         setTaskName("");
         setDueDate("");
     }
+    const {addTodoList}=useContext(TodoItemsContext)
     return (
         <div>
             <div className="border p-4 w-50 mx-auto">
